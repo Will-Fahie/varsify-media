@@ -7,7 +7,7 @@ export function Hero() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center space-y-6 text-center">
           <div className="space-y-4">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl leading-tight font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl leading-snug font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent mb-2">
               Varsify Media
             </h1>
             <p className="mx-auto max-w-[700px] text-foreground/80 md:text-xl">
