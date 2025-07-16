@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from '@/components/ui/dialog';
 import { PlayCircle } from 'lucide-react';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 const portfolioItems = [
   {
@@ -80,6 +81,9 @@ export function Portfolio() {
                   </Card>
                 </DialogTrigger>
                 <DialogContent className="max-w-4xl p-0 border-0 bg-transparent">
+                  <DialogTitle asChild>
+                    <VisuallyHidden>{item.title}</VisuallyHidden>
+                  </DialogTitle>
                   <div className="aspect-video">
                     <Image
                       src={item.image.replace('600x400', '1280x720')}
