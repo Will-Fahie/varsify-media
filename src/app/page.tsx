@@ -5,7 +5,7 @@ import { Contact } from '@/components/sections/contact';
 
 export default function Home() {
   return (
-    <div className="flex flex-col bg-gradient-to-br from-background to-purple-950/20">
+    <div className="flex flex-col">
       <Hero />
       <About />
       <Portfolio />

@@ -1,25 +1,23 @@
 'use client';
 
-import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#about', label: 'Who We Are' },
+  { href: '#portfolio', label: 'What We Do' },
+  { href: '#contact', label: 'Contact Us' },
 ];
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 flex">
-          <Logo />
-        </div>
-        <nav className="flex items-center space-x-2 sm:space-x-4 ml-auto">
+    <header className="absolute top-0 z-50 w-full">
+      {/* Changed h-20 to min-h-20 to allow the header to grow */}
+      <div className="container flex min-h-20 items-center py-2">
+        {/* Added flex-wrap, justify-center, and gap for better responsive behavior */}
+        <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:justify-start">
           {navLinks.map((link) => (
-            <Button key={link.href} variant="link" asChild className="text-foreground/80 hover:text-foreground transition-colors">
+            <Button key={link.label} variant="link" asChild className="text-foreground/80 hover:text-foreground transition-colors">
               <Link href={link.href}>{link.label}</Link>
             </Button>
           ))}

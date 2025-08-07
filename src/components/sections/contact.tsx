@@ -37,21 +37,21 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="w-full py-16 md:py-24 lg:py-32 bg-transparent">
+    <section id="contact" className="w-full py-8 md:py-12 bg-transparent">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-8">
             <div className="space-y-4">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
                     Get in Touch
                 </h2>
-                <p className="mx-auto max-w-[700px] text-foreground/80 md:text-xl/relaxed">
-                    Have a project in mind or want to learn more? Fill out the form below and we'll get back to you.
+                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+                    Want to learn more? Fill out the form below and we'll get back to you.
                 </p>
             </div>
             <Card className="w-full max-w-2xl bg-card border-primary/20">
                 <CardHeader>
                     <CardTitle>Contact Us</CardTitle>
-                    <CardDescription>Tell us more about what you're looking for.</CardDescription>
+                    <CardDescription>We'll respond as soon as possible.</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <Form {...form}>
