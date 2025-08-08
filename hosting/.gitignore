@@ -28,7 +28,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+
+# local env files
+.env*.local
 
 # vercel
 .vercel
@@ -36,22 +38,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# ADDED: Ignore compiled JavaScript and definition files
-*.js
-*.js.map
-*.mjs
-*.d.ts
-*.d.mts
-# Add exceptions for config files if you have handwritten JS files you need to keep
-!*.config.js
-!*.setup.js
-
-
-.genkit/*
-.env*
-
-# firebase
-firebase-debug.log
-firestore-debug.log
-/.firebase/

@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import { Mail, Phone, Instagram, ArrowRight} from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -17,91 +18,83 @@ const formSchema = z.object({
 });
 
 export function Contact() {
-  const { toast } = useToast();
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      message: '',
-    },
-  });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. We'll get back to you soon.",
-    });
-    form.reset();
-  }
-
   return (
-    <section id="contact" className="w-full py-8 md:py-12 bg-transparent">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col items-center text-center space-y-8">
-            <div className="space-y-4">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-                    Get in Touch
-                </h2>
-                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                    Want to learn more? Fill out the form below and we'll get back to you.
-                </p>
-            </div>
-            <Card className="w-full max-w-2xl bg-card border-primary/20">
-                <CardHeader>
-                    <CardTitle>Contact Us</CardTitle>
-                    <CardDescription>We'll respond as soon as possible.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                        <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                            <FormItem>
-                            <FormLabel>Name</FormLabel>
-                            <FormControl>
-                                <Input placeholder="Your Name" {...field} className="bg-background"/>
-                            </FormControl>
-                            <FormMessage />
-                            </FormItem>
-                        )}
-                        />
-                        <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                            <FormItem>
-                            <FormLabel>Email</FormLabel>
-                            <FormControl>
-                                <Input type="email" placeholder="your.email@example.com" {...field} className="bg-background"/>
-                            </FormControl>
-                            <FormMessage />
-                            </FormItem>
-                        )}
-                        />
-                        <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                            <FormItem>
-                            <FormLabel>Message</FormLabel>
-                            <FormControl>
-                                <Textarea placeholder="How can we help you?" {...field} className="bg-background"/>
-                            </FormControl>
-                            <FormMessage />
-                            </FormItem>
-                        )}
-                        />
-                        <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">Send Message</Button>
-                    </form>
-                    </Form>
-                </CardContent>
-            </Card>
+    <section id="contact" className="w-full py-20 md:py-32 relative overflow-hidden">
+      {/* Black fade at the top */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-10"></div>
+      
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/10 via-transparent to-blue-900/10"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 md:px-6 relative">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            Get in Touch
+          </h2>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Ready to elevate your university sports to professional standards? 
+            Let's discuss how we can increase your team's visibility and impact.
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          <div className="space-y-6">
+            <a 
+              href="mailto:info@varsifymedia.com" 
+              className="group flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl backdrop-blur-sm"
+            >
+              <div className="p-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 group-hover:from-purple-500 group-hover:to-blue-500 transition-all duration-300">
+                <Mail className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <div className="text-sm text-gray-400 uppercase tracking-wide font-medium">Email</div>
+                <div className="text-lg font-semibold text-white group-hover:text-purple-400 transition-colors">
+                info@varsifymedia.com
+                </div>
+              </div>
+              <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all ml-auto" />
+            </a>
+
+            <a 
+              href="tel:+447547594134" 
+              className="group flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl backdrop-blur-sm"
+            >
+              <div className="p-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 group-hover:from-purple-500 group-hover:to-blue-500 transition-all duration-300">
+                <Phone className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <div className="text-sm text-gray-400 uppercase tracking-wide font-medium">Phone</div>
+                <div className="text-lg font-semibold text-white group-hover:text-purple-400 transition-colors">
+                  +44 7547 594134
+                </div>
+              </div>
+              <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all ml-auto" />
+            </a>
+
+            <a 
+              href="https://instagram.com/varsifymedia" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="group flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl backdrop-blur-sm"
+            >
+              <div className="p-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 group-hover:from-purple-500 group-hover:to-blue-500 transition-all duration-300">
+                <Instagram className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <div className="text-sm text-gray-400 uppercase tracking-wide font-medium">Instagram</div>
+                <div className="text-lg font-semibold text-white group-hover:text-purple-400 transition-colors">
+                  @varsifymedia
+                </div>
+              </div>
+              <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all ml-auto" />
+            </a>
+          </div>
         </div>
       </div>
+      
+      {/* Black fade at the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-black z-10"></div>
     </section>
   );
 }

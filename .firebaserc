@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "varsify-media-website": "varsify-media",
+    "default": "varsify-media"
+  },
+  "targets": {},
+  "etags": {}
+}

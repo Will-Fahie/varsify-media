@@ -17,9 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        
+        <link rel="icon" href="/images/logo.svg" type="image/svg+xml" />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased min-h-screen">
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>

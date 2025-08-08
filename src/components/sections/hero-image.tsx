@@ -29,7 +29,7 @@ export function Hero() {
               alt="Varsify Media Logo" 
               width={800} 
               height={320} 
-              className="opacity-85 w-full max-w-[450px] md:max-w-[800px] lg:max-w-[1000px] h-auto" 
+              className="opacity-85 w-full max-w-[550px] md:max-w-[800px] lg:max-w-[1000px] h-auto" 
             />
           </div>
         </div>
